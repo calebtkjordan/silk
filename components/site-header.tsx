@@ -6,7 +6,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 flex items-center bg-background px-4 py-4">
       <Link href="/">
         <Image
-          src="/logo.png"
+          src="/logo2.png"
           alt="Silk"
           width={56}
           height={56}
