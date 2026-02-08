@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/lib/data/products";
 
@@ -5,8 +6,8 @@ export function ProductDetail({ product }: { product: Product }) {
   return (
     <div className="space-y-4 px-4 py-4">
       <div className="flex justify-center gap-3">
-        <Button className="min-w-32 rounded-full px-8 py-3 text-lg" size="lg">
-          Offer
+        <Button className="min-w-32 rounded-full px-8 py-3 text-lg" size="lg" asChild>
+          <Link href="/offer">Offer</Link>
         </Button>
         <Button className="min-w-32 rounded-full px-8 py-3 text-lg" variant="outline" size="lg">
           Chat

@@ -11,6 +11,8 @@ export type Product = {
 export type Seller = {
   id: string;
   username: string;
+  location: string;
+  bio: string;
   products: Product[];
 };
 
@@ -165,28 +167,63 @@ const products: Product[] = [
     imageUrl: "/placeholder/5b4122c319a0d77ba1e7ec55ea87ee63366b09ab.png",
     sellerId: "s4",
   },
+  {
+    id: "16",
+    title: "Vultures Dark Crop Top",
+    size: "S",
+    description:
+      "Black cropped tee with Vultures crest. Boxy cut, heavyweight cotton.",
+    tags: ["London", "T-Shirts", "Streetwear"],
+    imageUrl: "/placeholder/a422d23074615b9ae558c0c30d9126570c162f0a.png",
+    sellerId: "s5",
+  },
+  {
+    id: "17",
+    title: "Vultures White Wide Pants",
+    size: "S",
+    description:
+      "White wide-leg pants with Vultures patch. Light cotton, never worn.",
+    tags: ["London", "Pants", "Streetwear"],
+    imageUrl: "/placeholder/7a73901c98554651bcb6f84dad266c4a6aec1d77 (2).png",
+    sellerId: "s5",
+  },
 ];
 
 const sellers: Seller[] = [
   {
     id: "s1",
     username: "hieronymous",
+    location: "Madrid, ESP",
+    bio: "Based in Madrid. Streetwear, punk, avant garde.\nOpen to shipping in the EU.",
     products: products.filter((p) => p.sellerId === "s1"),
   },
   {
     id: "s2",
     username: "vultures.archive",
+    location: "Barcelona, ESP",
+    bio: "Barcelona-based. Collecting and trading Vultures pieces.",
     products: products.filter((p) => p.sellerId === "s2"),
   },
   {
     id: "s3",
     username: "silk.trader",
+    location: "London, UK",
+    bio: "London. Curating streetwear and avant garde.",
     products: products.filter((p) => p.sellerId === "s3"),
   },
   {
     id: "s4",
     username: "daily.rotation",
+    location: "Berlin, DE",
+    bio: "Berlin. Rotating pieces weekly. Open to trades.",
     products: products.filter((p) => p.sellerId === "s4"),
+  },
+  {
+    id: "s5",
+    username: "shivvy",
+    location: "London, UK",
+    bio: "London-based. Into minimalist streetwear and dark aesthetics.",
+    products: products.filter((p) => p.sellerId === "s5"),
   },
 ];
 
@@ -200,6 +237,10 @@ export function getProductById(id: string): Product | undefined {
 
 export function getSellerById(id: string): Seller | undefined {
   return sellers.find((s) => s.id === id);
+}
+
+export function getSellerByUsername(username: string): Seller | undefined {
+  return sellers.find((s) => s.username === username);
 }
 
 export function getSellerProducts(sellerId: string): Product[] {

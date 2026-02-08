@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProductById, getSellerProducts, getSellerById } from "@/lib/data/products";
 import { SellerItemsRow } from "@/components/seller-items-row";
@@ -23,9 +24,12 @@ export default async function ProductPage({
     <div>
       <SellerItemsRow products={sellerProducts} currentProductId={product.id} />
 
-      <p className="py-3 text-center text-2xl font-medium underline underline-offset-4">
+      <Link
+        href={`/profile/${seller?.id}`}
+        className="block py-3 text-center text-2xl font-medium underline underline-offset-4"
+      >
         @{seller?.username}
-      </p>
+      </Link>
 
       <div className="relative aspect-square w-full overflow-hidden">
         <Image

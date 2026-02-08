@@ -18,7 +18,10 @@ export function BottomNav() {
         {tabs.map((tab) => {
           const isActive =
             tab.href === "/"
-              ? pathname === "/" || pathname.startsWith("/product")
+              ? pathname === "/" ||
+                pathname.startsWith("/product") ||
+                pathname.startsWith("/profile") ||
+                pathname.startsWith("/offer")
               : pathname.startsWith(tab.href);
 
           return (
